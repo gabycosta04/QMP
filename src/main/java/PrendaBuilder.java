@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-
-
 //ALTERNATIVA 1
 public class PrendaBuilder{
     private Tipo tipoActual;
