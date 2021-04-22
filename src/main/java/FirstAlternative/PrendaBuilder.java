@@ -58,6 +58,9 @@ enum Tipo{
     private Categoria categoria;
 
     Tipo(Categoria categoriaCorrecta){
+        if(categoriaCorrecta == null){
+            throw new CategoriaException("Debe seleccionar una categoria indicada para el nuevo tipo de prenda");
+        }
         this.categoria = categoriaCorrecta;
     }
     public Categoria getCategoria(){
