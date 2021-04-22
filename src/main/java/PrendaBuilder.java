@@ -21,30 +21,8 @@ public class PrendaBuilder{
 }
 
 
-//ALTERNATIVA 2
-/*
-class PrendaBuilder{
-    private Tipo tipoActual;
-    private Material materialPrenda;
-    private Color colorPrincipal;
-    private Color colorSecundario;
-    private Categoria categoriaActual;
-
-    //optamos por un constructor para asi siempre el usuario deba ingresar el tipo de prenda,tela,color primario
-    PrendaBuilder(Tipo tipoSolicitado,Material materialSolicitado,Color colorPrincipalSolicitado){
-        this.tipoActual = tipoSolicitado;
-        this.materialPrenda = materialSolicitado;
-        this.colorPrincipal = colorPrincipalSolicitado;
-        this.categoriaActual = tipoSolicitado.getCategoria();
-    }
-
-    void indicarColorSecundario(Color colorAagregar){
-        this.colorSecundario = colorAagregar;
-    }
-}
-*/
 enum Material{
-    TELA, LANA
+    TELA, LANA, CUERO, JEAN
 }
 
 enum Tipo{
@@ -72,10 +50,6 @@ enum Tipo{
 
 enum Categoria{
     SUPERIOR, CALZADO,INFERIOR,ACCESORIO
-}
-
-enum Estacion{
-    SUMMER, WINTER, FALL, SPRING
 }
 enum Color {
     ROJO, VERDE, AMARILLO, AZUL
