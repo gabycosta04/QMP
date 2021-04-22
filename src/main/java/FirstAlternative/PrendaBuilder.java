@@ -1,20 +1,39 @@
+package FirstAlternative;
+
 //ALTERNATIVA 1
 public class PrendaBuilder{
     private Tipo tipoActual;
     private Material materialPrenda;
     private Color colorPrincipal;
     private Color colorSecundario;
+    private Categoria categoriaActual;
 
     //optamos por un constructor para asi siempre el usuario deba ingresar el tipo de prenda,tela,color primario
-    PrendaBuilder(Tipo tipoSolicitado,Material materialSolicitado,Color colorPrincipalSolicitado){
+    PrendaBuilder(Tipo tipoSolicitado,Material materialSolicitado,Color colorPrincipalSolicitado, Categoria categoriaSolicitada){
+        if (tipoSolicitado == null) {
+            throw new TipoException("Debes seleccionar un tipo de atuendo a utilizar");
+        }
         this.tipoActual = tipoSolicitado;
+        if (materialSolicitado == null) {
+            throw new MaterialException("Debes seleccionar un tipo de material para la prenda");
+        }
         this.materialPrenda = materialSolicitado;
+        if (colorPrincipalSolicitado == null) {
+            throw new ColorException("Debes seleccionar un color de prenda");
+        }
         this.colorPrincipal = colorPrincipalSolicitado;
+
+        if (categoriaSolicitada == null) {
+            throw new CategoriaException("Debes seleccionar una categoria de prenda");
+        }
+        if(categoriaSolicitada != tipoSolicitado.getCategoria()){
+            throw new CategoriaException("La categoria "+categoriaSolicitada +" no coincide correctamente con la categoria "
+                    + tipoSolicitado.getCategoria()+ " del tipo de prenda");
+        }
+        this.categoriaActual = categoriaSolicitada;
     }
 
-    Categoria cateogoriaDePrenda(){
-        return tipoActual.getCategoria();
-    }
+
     void indicarColorSecundario(Color colorAagregar){
         this.colorSecundario = colorAagregar;
     }
@@ -54,4 +73,3 @@ enum Categoria{
 enum Color {
     ROJO, VERDE, AMARILLO, AZUL
 }
-
