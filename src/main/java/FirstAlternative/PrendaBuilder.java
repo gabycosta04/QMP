@@ -1,4 +1,4 @@
-package FirstAlternative;
+﻿package FirstAlternative;
 
 //ALTERNATIVA 1
 public class PrendaBuilder{
@@ -40,11 +40,36 @@ public class PrendaBuilder{
 }
 
 
-enum Material{
+/* PRIMER ALTERNATIVA PLANTEADA POR MI
+enum Color {
+    ROJO, VERDE, AMARILLO, AZUL
+}
+*/
+
+//Mejor alternativa planteada por Roli
+class Color{
+    int rojo;
+    int azul;
+    int amarillo;
+
+    public Color(int rojonSeleccionado, int azulSeleccionado, int amarilloSeleccionado) {
+        this.rojo = rojonSeleccionado;
+        this.azul = azulSeleccionado;
+        this.amarillo = amarilloSeleccionado;
+    }
+}
+
+
+enum Material {
     TELA, LANA, CUERO, JEAN
 }
 
+enum Categoria{
+    SUPERIOR, CALZADO,INFERIOR,ACCESORIO
+}
+
 enum Tipo{
+
     ZAPATOS(Categoria.CALZADO),
     MUSCULOSA(Categoria.SUPERIOR),
     CAMISA_MANGASCORTAS(Categoria.SUPERIOR),
@@ -54,7 +79,6 @@ enum Tipo{
     PAÑUELO(Categoria.ACCESORIO),
     ZAPATILLAS(Categoria.CALZADO);
 
-
     private Categoria categoria;
 
     Tipo(Categoria categoriaCorrecta){
@@ -62,17 +86,8 @@ enum Tipo{
             throw new CategoriaException("Debe seleccionar una categoria indicada para el nuevo tipo de prenda");
         }
         this.categoria = categoriaCorrecta;
-    }
-    public Categoria getCategoria(){
-        return categoria;
-    }
-    //no hacemos un setter ya que no seria correcto, ya que la categoria de una prenda es siempre estatica
+    }   //no hacemos un setter ya que no seria correcto, ya que la categoria de una prenda es siempre estatica
 }
 
 
-enum Categoria{
-    SUPERIOR, CALZADO,INFERIOR,ACCESORIO
-}
-enum Color {
-    ROJO, VERDE, AMARILLO, AZUL
-}
+
