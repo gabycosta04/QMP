@@ -26,11 +26,9 @@ public class PrendaBuilder{
         if (categoriaSolicitada == null) {
             throw new CategoriaException("Debes seleccionar una categoria de prenda");
         }
-        if(categoriaSolicitada != tipoSolicitado.getCategoria()){
-            throw new CategoriaException("La categoria "+categoriaSolicitada +" no coincide correctamente con la categoria "
-                    + tipoSolicitado.getCategoria()+ " del tipo de prenda");
-        }
-        this.categoriaActual = categoriaSolicitada;
+    }
+    Categoria categoriaDePrenda(){
+    return tipoActual.getCategoria();
     }
 
 
@@ -70,6 +68,14 @@ enum Categoria{
 
 enum Tipo{
 
+    ZAPATOS(Categoria.CALZADO),
+    MUSCULOSA(Categoria.SUPERIOR),
+    CAMISA_MANGASCORTAS(Categoria.SUPERIOR),
+    CAMISA_MANGASLARGAS(Categoria.SUPERIOR),
+    PANTALON(Categoria.INFERIOR),
+    ANTEOJOSDESOL(Categoria.ACCESORIO),
+    PAÑUELO(Categoria.ACCESORIO),
+    ZAPATILLAS(Categoria.CALZADO);
 
     private Categoria categoria;
 
@@ -79,16 +85,9 @@ enum Tipo{
         }
         this.categoria = categoriaCorrecta;
     }   //no hacemos un setter ya que no seria correcto, ya que la categoria de una prenda es siempre estatica
-
-    ZAPATOS(Categoria.CALZADO),
-    MUSCULOSA(Categoria.SUPERIOR),
-    CAMISA_MANGASCORTAS(Categoria.SUPERIOR),
-    CAMISA_MANGASLARGAS(Categoria.SUPERIOR),
-    PANTALON(Categoria.INFERIOR),
-    ANTEOJOSDESOL(Categoria.ACCESORIO),
-    PAÑUELO(Categoria.ACCESORIO),
-    ZAPATILLAS(Categoria.CALZADO)
-
+    Categoria getCategoria(){
+        return categoria;
+    }
 }
 
 
