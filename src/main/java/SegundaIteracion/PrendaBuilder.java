@@ -7,40 +7,60 @@ import SegundaIteracion.TipoException;
 
 
 public class PrendaBuilder{
-    private Tipo tipoActual;
-    private Material materialPrenda;
-    private Color colorPrincipal;
-    private Color colorSecundario;
-    private Categoria categoriaActual;
+    private Tipo tipoSeleccionado;
+    private Material materialSeleccionado;
+    private Color colorPrincipalSeleccionado;
+    private Color colorSecundarioSeleccionado;
+    private Trama tramaSeleccionada;
 
 
-    PrendaBuilder(Tipo tipoSolicitado,Material materialSolicitado,Color colorPrincipalSolicitado, Categoria categoriaSolicitada){
+    PrendaBuilder(Tipo tipoSolicitado,Color colorPrincipalSolicitado,Color colorSecundarioSolicitado,Material materialSolicitado, Trama tramaSolicitada, Borrador borradorDeGuardado){
+        //como requerimento primero lo que cargamos es el tipo de prenda solicitado:
         if (tipoSolicitado == null) {
             throw new TipoException("Debes seleccionar un tipo de atuendo a utilizar");
         }
-        this.tipoActual = tipoSolicitado;
-        if (materialSolicitado == null) {
-            throw new MaterialException("Debes seleccionar un tipo de material para la prenda");
-        }
-        this.materialPrenda = materialSolicitado;
+        this.tipoSeleccionado = tipoSolicitado;
+
+
         if (colorPrincipalSolicitado == null) {
             throw new ColorException("Debes seleccionar un color de prenda");
         }
-        this.colorPrincipal = colorPrincipalSolicitado;
+        this.colorPrincipalSeleccionado = colorPrincipalSolicitado;
 
-        if (categoriaSolicitada == null) {
-            throw new CategoriaException("Debes seleccionar una categoria de prenda");
+        this.colorSecundarioSeleccionado = colorSecundarioSolicitado;
+
+        if (materialSolicitado == null) {
+            throw new MaterialException("Debes seleccionar un tipo de material para la prenda");
         }
+        this.materialSeleccionado = materialSolicitado;
+
+        //trama
+        if (tramaSolicitada == null) {
+            tramaSolicitada = Trama.LISA;
+        }
+
+        //en caso de que no ocurra ninguna falla con la creacion, se guardara en el borrador
+        borradorDeGuardado.prendaAModificar(this);
+
     }
+
     Categoria categoriaDePrenda(){
-    return tipoActual.getCategoria();
+    return tipoSeleccionado.getCategoria();
     }
 
 
     void indicarColorSecundario(Color colorAagregar){
-        this.colorSecundario = colorAagregar;
+        this.colorSecundarioSeleccionado = colorAagregar;
     }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -89,5 +109,9 @@ enum Tipo{
     }
 }
 
+
+enum Trama{
+    LISA,RAYADA,LUNARES,CUADROS,ESTAMPADO
+}
 
 
