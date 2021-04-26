@@ -1,4 +1,4 @@
-package FirstAlternative;
+package SegundaIteracion;
 
 public class TipoException extends RuntimeException{
     TipoException(String msg){

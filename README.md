@@ -30,4 +30,4 @@ Y luego, al consultar más sobre este requerimiento general, logramos descompone
 
 
 # Resolucion del diseño realizado:
-En base a los requerimentos establecidos en el enunciado, realize una primer alternativa para el diseño de las prendas, la cual esta guardada en la carpeta src\main\java\FirstAlternative, donde realize tanto un pseucocodigo como tambien un diagrama de clases para tratar de comunicar el diseño
+En base a los requerimentos establecidos en el enunciado, realize una primer alternativa para el diseño de las prendas, la cual esta guardada en la carpeta src\main\java\PrimerIteracion, donde realize tanto un pseucocodigo como tambien un diagrama de clases para tratar de comunicar el diseño

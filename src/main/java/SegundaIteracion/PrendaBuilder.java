@@ -1,6 +1,11 @@
-﻿package FirstAlternative;
+﻿package SegundaIteracion;
 
-//ALTERNATIVA 1
+import SegundaIteracion.CategoriaException;
+import SegundaIteracion.ColorException;
+import SegundaIteracion.MaterialException;
+import SegundaIteracion.TipoException;
+
+
 public class PrendaBuilder{
     private Tipo tipoActual;
     private Material materialPrenda;
@@ -8,7 +13,7 @@ public class PrendaBuilder{
     private Color colorSecundario;
     private Categoria categoriaActual;
 
-    //optamos por un constructor para asi siempre el usuario deba ingresar el tipo de prenda,tela,color primario
+
     PrendaBuilder(Tipo tipoSolicitado,Material materialSolicitado,Color colorPrincipalSolicitado, Categoria categoriaSolicitada){
         if (tipoSolicitado == null) {
             throw new TipoException("Debes seleccionar un tipo de atuendo a utilizar");
@@ -38,13 +43,7 @@ public class PrendaBuilder{
 }
 
 
-/* PRIMER ALTERNATIVA PLANTEADA POR MI
-enum Color {
-    ROJO, VERDE, AMARILLO, AZUL
-}
-*/
 
-//Mejor alternativa planteada por Roli
 class Color{
     int rojo;
     int azul;
@@ -74,7 +73,7 @@ enum Tipo{
     CAMISA_MANGASLARGAS(Categoria.SUPERIOR),
     PANTALON(Categoria.INFERIOR),
     ANTEOJOSDESOL(Categoria.ACCESORIO),
-    PAÑUELO(Categoria.ACCESORIO),
+    PANUELO(Categoria.ACCESORIO),
     ZAPATILLAS(Categoria.CALZADO);
 
     private Categoria categoria;
@@ -84,7 +83,7 @@ enum Tipo{
             throw new CategoriaException("Debe seleccionar una categoria indicada para el nuevo tipo de prenda");
         }
         this.categoria = categoriaCorrecta;
-    }   //no hacemos un setter ya que no seria correcto, ya que la categoria de una prenda es siempre estatica
+    }
     Categoria getCategoria(){
         return categoria;
     }
