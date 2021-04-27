@@ -38,6 +38,7 @@ public class PrendaBuilder{
         if (tramaSolicitada == null) {
             tramaSolicitada = Trama.LISA;
         }
+        this.tramaSolicitada = tramaSolicitada;
 
     }
 
