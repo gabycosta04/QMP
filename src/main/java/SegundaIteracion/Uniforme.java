@@ -3,6 +3,8 @@ package SegundaIteracion;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//pense en utilizar borradores, pero como no establece que los uniformes puedan ser cambiados luego, entonces me parece bien usar asi el uniforme
 public class Uniforme {
 
     List <PrendaBuilder> uniformeActual =  new ArrayList<>();
@@ -27,6 +29,10 @@ public class Uniforme {
                     "su tipo actual es: "+ prendaCalzado.categoriaDePrenda().toString());
         }
         this.uniformeActual.add(prendaCalzado);
+
+
     }
+
+    //los uniformes todavia no tienen comportamiento x lo tanto no se lo declaramos
 
 }

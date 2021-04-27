@@ -14,7 +14,7 @@ public class PrendaBuilder{
     private Trama tramaSeleccionada;
 
 
-    PrendaBuilder(Tipo tipoSolicitado,Color colorPrincipalSolicitado,Color colorSecundarioSolicitado,Material materialSolicitado, Trama tramaSolicitada, Borrador borradorDeGuardado){
+    PrendaBuilder(Tipo tipoSolicitado,Color colorPrincipalSolicitado,Color colorSecundarioSolicitado,Material materialSolicitado, Trama tramaSolicitada){
         //como requerimento primero lo que cargamos es el tipo de prenda solicitado:
         if (tipoSolicitado == null) {
             throw new TipoException("Debes seleccionar un tipo de atuendo a utilizar");
@@ -26,7 +26,7 @@ public class PrendaBuilder{
             throw new ColorException("Debes seleccionar un color de prenda");
         }
         this.colorPrincipalSeleccionado = colorPrincipalSolicitado;
-
+        //puede ser null el color secundario, no deberia generar ninguna excepcion
         this.colorSecundarioSeleccionado = colorSecundarioSolicitado;
 
         if (materialSolicitado == null) {
@@ -38,9 +38,6 @@ public class PrendaBuilder{
         if (tramaSolicitada == null) {
             tramaSolicitada = Trama.LISA;
         }
-
-        //en caso de que no ocurra ninguna falla con la creacion, se guardara en el borrador
-        borradorDeGuardado.prendaAModificar(this);
 
     }
 
