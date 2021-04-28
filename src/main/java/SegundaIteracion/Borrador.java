@@ -4,18 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Borrador {
-    private Tipo tipoSeleccionado;
+    //para la prenda tendria q validar que se pueda crear una prenda, en base de eso generara una prenda, sino tirara error
+    //al ser un borrador algo q despues podemos modificar, establecemos los setters para luego poder realizar modificaciones
+
+    private TipoPrenda tipoSeleccionado;
     private Material materialSeleccionado;
     private Color colorPrincipalSeleccionado;
     private Color colorSecundarioSeleccionado;
     private Trama tramaSeleccionada;
 
-    PrendaBuilder crearPrenda(){
-        return new PrendaBuilder(tipoSeleccionado,colorPrincipalSeleccionado,colorSecundarioSeleccionado,materialSeleccionado,tramaSeleccionada);
+    Prenda crearPrenda(){
+        return new Prenda(tipoSeleccionado,colorPrincipalSeleccionado,colorSecundarioSeleccionado,materialSeleccionado,tramaSeleccionada);
 
     }
 
-    public void modificarTipoSeleccionado(Tipo tipoNuevo) {
+    public void modificarTipoSeleccionado(TipoPrenda tipoNuevo) {
         this.tipoSeleccionado = tipoNuevo;
     }
 

@@ -7,9 +7,9 @@ import java.util.List;
 //pense en utilizar borradores, pero como no establece que los uniformes puedan ser cambiados luego, entonces me parece bien usar asi el uniforme
 public class Uniforme {
 
-    List <PrendaBuilder> uniformeActual =  new ArrayList<>();
+    List <Prenda> uniformeActual =  new ArrayList<>();
 
-    Uniforme(PrendaBuilder prendaSuperior, PrendaBuilder prendaInferior, PrendaBuilder prendaCalzado){
+    Uniforme(Prenda prendaSuperior, Prenda prendaInferior, Prenda prendaCalzado){
         if(prendaSuperior.categoriaDePrenda() != Categoria.SUPERIOR){
             //throw new CategoriaException(Categoria.SUPERIOR, prendaSuperior.categoriaDePrenda());
             throw new CategoriaException("Debe seleccionar una prenda de categoria superior"+

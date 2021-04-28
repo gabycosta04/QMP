@@ -5,16 +5,15 @@ import SegundaIteracion.ColorException;
 import SegundaIteracion.MaterialException;
 import SegundaIteracion.TipoException;
 
-
-public class PrendaBuilder{
-    private Tipo tipoSeleccionado;
+public class Prenda {
+    private TipoPrenda tipoSeleccionado;
     private Material materialSeleccionado;
     private Color colorPrincipalSeleccionado;
     private Color colorSecundarioSeleccionado;
     private Trama tramaSeleccionada;
 
 
-    PrendaBuilder(Tipo tipoSolicitado,Color colorPrincipalSolicitado,Color colorSecundarioSolicitado,Material materialSolicitado, Trama tramaSolicitada){
+    Prenda(TipoPrenda tipoSolicitado, Color colorPrincipalSolicitado, Color colorSecundarioSolicitado, Material materialSolicitado, Trama tramaSolicitada) {
         //como requerimento primero lo que cargamos es el tipo de prenda solicitado:
         if (tipoSolicitado == null) {
             throw new TipoException("Debes seleccionar un tipo de atuendo a utilizar");
@@ -41,26 +40,20 @@ public class PrendaBuilder{
 
     }
 
-    Categoria categoriaDePrenda(){
-    return tipoSeleccionado.getCategoria();
+    Categoria categoriaDePrenda() {
+        return tipoSeleccionado.getCategoria();
     }
 
+    //POR AHORA no se lo agrego ya que que considermanos que el colorSecundario no tendria que mutar, pero en caso de q pudiera no estaria de mas
 
-    void indicarColorSecundario(Color colorAagregar){
-        this.colorSecundarioSeleccionado = colorAagregar;
-    }
+    //void indicarColorSecundario(Color colorAagregar) {
+    //    this.colorSecundarioSeleccionado = colorAagregar;
+    //    }
 }
 
 
 
-
-
-
-
-
-
-
-
+//deseo utlizar este tipo de color, ya que en base a este puedo seleccionar un rango de colores en base a la combincaion de colores primarios
 class Color{
     int rojo;
     int azul;
@@ -73,16 +66,18 @@ class Color{
     }
 }
 
-
+// como no hay comportamiento respecto al material, por ahora me parece q lo mas certero es utilizar enums
 enum Material {
     TELA, LANA, CUERO, JEAN
 }
-
+// como no hay comportamiento respecto a la categoria, por ahora me parece q lo mas certero es utilizar enums
 enum Categoria{
     SUPERIOR, CALZADO,INFERIOR,ACCESORIO
 }
 
-enum Tipo{
+
+// el tipo se relaciona siempre con una categoria de prenda, ya q la categoria de la prenda, siempre dependera del tipo
+enum TipoPrenda{
 
     ZAPATOS(Categoria.CALZADO),
     MUSCULOSA(Categoria.SUPERIOR),
@@ -95,7 +90,7 @@ enum Tipo{
 
     private Categoria categoria;
 
-    Tipo(Categoria categoriaCorrecta){
+    TipoPrenda(Categoria categoriaCorrecta){
         if(categoriaCorrecta == null){
             throw new CategoriaException("Debe seleccionar una categoria indicada para el nuevo tipo de prenda");
         }
