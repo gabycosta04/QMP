@@ -37,6 +37,7 @@ public class Prenda {
         if (tramaSolicitada == null) {
             tramaSolicitada = Trama.LISA;
         }
+        this.tramaSolicitada = tramaSolicitada;
 
     }
 
