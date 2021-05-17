@@ -1,7 +1,7 @@
-package SegundaIteracion;
+package CuartaIteracion;
 
 public class MaterialException extends RuntimeException {
-    public MaterialException(String msg) {
+    MaterialException(String msg) {
         super(msg);
     }
 }

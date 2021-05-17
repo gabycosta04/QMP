@@ -37,11 +37,11 @@ public class Prenda {
         if (tramaSolicitada == null) {
             tramaSolicitada = Trama.LISA;
         }
-        this.tramaSolicitada = tramaSolicitada;
+        this.tramaSeleccionada = tramaSolicitada;
 
     }
 
-    Categoria categoriaDePrenda() {
+    public Categoria categoriaDePrenda() {
         return tipoSeleccionado.getCategoria();
     }
 
@@ -70,10 +70,6 @@ class Color{
 // como no hay comportamiento respecto al material, por ahora me parece q lo mas certero es utilizar enums
 enum Material {
     TELA, LANA, CUERO, JEAN
-}
-// como no hay comportamiento respecto a la categoria, por ahora me parece q lo mas certero es utilizar enums
-enum Categoria{
-    SUPERIOR, CALZADO,INFERIOR,ACCESORIO
 }
 
 

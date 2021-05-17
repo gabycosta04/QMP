@@ -1,7 +1,7 @@
-package SegundaIteracion;
+package CuartaIteracion;
 
 public class TipoException extends RuntimeException{
-    public TipoException(String msg){
+    TipoException(String msg){
         super(msg);
     }
 }

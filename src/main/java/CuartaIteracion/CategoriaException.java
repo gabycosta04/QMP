@@ -1,8 +1,8 @@
-package SegundaIteracion;
+package CuartaIteracion;
 
 public class CategoriaException extends RuntimeException {
 
-    public CategoriaException(String msg) {
+    CategoriaException(String msg) {
         super(msg);
     }
 
