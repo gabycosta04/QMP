@@ -15,10 +15,11 @@ public class Prenda {
     private Trama tramaSeleccionada;
     private Color colorPrincipalSeleccionado;
     private Color colorSecundarioSeleccionado;
+    int temperaturaAdecuada;
 
 
 
-    Prenda(TipoPrenda tipoSolicitado,Material materialSolicitado,  Trama tramaSolicitada, Color colorPrincipalSolicitado, Color colorSecundarioSolicitado) {
+    Prenda(TipoPrenda tipoSolicitado,Material materialSolicitado,  Trama tramaSolicitada, Color colorPrincipalSolicitado, Color colorSecundarioSolicitado, int temperatura) {
         //como requerimento primero lo que cargamos es el tipo de prenda solicitado:
         if (tipoSolicitado == null) {
             throw new TipoException("Debes seleccionar un tipo de atuendo a utilizar");
@@ -51,6 +52,11 @@ public class Prenda {
         this.colorPrincipalSeleccionado = colorPrincipalSolicitado;
         //puede ser null el color secundario, no deberia generar ninguna excepcion
         this.colorSecundarioSeleccionado = colorSecundarioSolicitado;
+        this.temperaturaAdecuada = temperatura;
+    }
+
+    public int getTemperaturaAdecuada(){
+        return temperaturaAdecuada;
     }
 
     Categoria categoriaDePrenda() {

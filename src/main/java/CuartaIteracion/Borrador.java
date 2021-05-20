@@ -11,9 +11,10 @@ public class Borrador {
     private Color colorPrincipalSeleccionado;
     private Color colorSecundarioSeleccionado;
     private Trama tramaSeleccionada;
+    int temperatura;
 
     Prenda crearPrenda(){
-        return new Prenda(tipoSeleccionado,materialSeleccionado,tramaSeleccionada,colorPrincipalSeleccionado,colorSecundarioSeleccionado);
+        return new Prenda(tipoSeleccionado,materialSeleccionado,tramaSeleccionada,colorPrincipalSeleccionado,colorSecundarioSeleccionado,temperatura);
 
     }
 
@@ -35,6 +36,9 @@ public class Borrador {
 
     public void modificarTramaSeleccionado(Trama tramaNuevo) {
         this.tramaSeleccionada = tramaNuevo;
+    }
+    void seleccionarTemperatura(int temperaturaSeleccionada){
+        this.temperatura = temperaturaSeleccionada;
     }
 
 }
