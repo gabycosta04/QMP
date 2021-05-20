@@ -1,34 +1,18 @@
 ## QMP (2 ITERACION)
 
-# Enunciado: Segunda iteracion
+# Enunciado: Cuarta Iteracion
 
-En esta iteración seguiremos trabajando sobre la carga de prendas válidas:
+En esta oportunidad, atacaremos solamente los siguientes requerimientos específicos:
 
+- Como usuarie de QuéMePongo, quiero poder conocer las condiciones climáticas de Buenos Aires en un momento dado para obtener sugerencias acordes.
 
--Como usuarie de QuéMePongo, quiero poder cargar prendas válidas para generar atuendos con ellas.
+- Como usuarie de QuéMePongo, quiero poder recibir sugerencias de atuendos que tengan una prenda para cada categoría, aunque a futuro podrán tener más (Ej.: Una remera, un pantalón, zapatos y un gorro).
 
--Sin embargo, agregaremos algunos requerimiento adicionales
+- Como usuarie de QuéMePongo, quiero que al generar una sugerencia las prendas sean acordes a la temperatura actual sabiendo que para cada prenda habrá una temperatura hasta la cual es adecuada. (Ej.: “Remera de mangas largas” no es apta a más de 20°C)
 
--Como usuarie de QuéMePongo, quiero especificar qué trama tiene la tela de una prenda (lisa, rayada, con lunares, a cuadros o un estampado)
+- Como administradore de QuéMePongo, quiero poder configurar fácilmente diferentes servicios de obtención del clima para ajustarme a las cambiantes condiciones económicas.
 
--Como usuarie de QuéMePongo, quiero crear una prenda especificando primero de qué tipo es
-
--Como usuarie de QuéMePongo, quiero crear una prenda especificando en segundo lugar los aspectos relacionados a su material (colores, material, trama, etc) para evitar elegir materiales inconsistentes con el tipo de prenda
-
--Como usuarie de QuéMePongo, quiero guardar un borrador de la la última prenda que empecé a cargar para continuar después
-
--Como usuarie de QuéMePongo, quiero poder no indicar ninguna trama para una tela, y que por defecto ésta sea lisa
-
--Como usuarie de QuéMePongo, quiero poder guardar una prenda solamente si esta es válida
-
-
-Por otro lado, el equipo de producto está analizando potenciales futuras funcionalidades para la aplicación y, a fin de tener una estimación de su complejidad, nos pidió que esbocemos una solución a los siguientes requerimientos, orientados a integrar el software con colegios e instituciones privadas:
-
--Como usuario QueMePongo, quiero que poder recibir sugerencias de uniformes armados
-
--Como usuario QueMePongo, quiero que un uniforme siempre conste de una prenda superior, una inferior y un calzado
-
--Como administrador de QueMePongo, quiero poder configurar diferentes uniformes para distintas instituciones (Ej: para el colegio San Juan debe ser una chomba verde de piqué, un pantalón de acetato gris y zapatillas blancas, mientras que para el Instituto Johnson siempre será una camisa blanca, pantalón de vestir negro y zapatos negros) 
+- Como stakeholder de QuéMePongo, quiero poder asegurar la calidad de mi aplicación sin incurrir en costos innecesarios. 
 
 
 # Resolucion del diseño realizado:
