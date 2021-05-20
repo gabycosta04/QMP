@@ -36,9 +36,6 @@ class Sugeridor implements GeneradorSugerencias{
   public List <Prenda> prendasAptas(List <Prenda> prendas){
     return prendas.stream().filter(prenda -> this.temperaturaValida(prenda)).collect(Collectors.toList());
   }
-
-
-
   private int temperaturaActual(){
     AccuWeatherAPI apiClima = new AccuWeatherAPI();
     List<Map<String, Object>> condicionesClimaticas = apiClima.getWeather("Buenos Aires, Argentina");
@@ -46,11 +43,6 @@ class Sugeridor implements GeneradorSugerencias{
     int temperatura = (int) temperaturaActual.get("Value");
     return temperatura;
   }
-
-
-
-
-
   public List<Sugerencia> generarSugerenciasDesde(List <Prenda> prendas){
     //esto validaria que sean aptas con la temperatura actual
     List<Prenda> prendasAptas = this.prendasAptas(prendas);
