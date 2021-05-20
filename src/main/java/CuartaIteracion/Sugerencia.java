@@ -25,33 +25,14 @@ public class Sugerencia {
     this.accesorio = prendaAelegir;
   }
 
+
+
+
+  //faltaria implementar la logica de realizar una sugerencia pero eso es parte del QMP3 y por ahora no lo vamos a aplicar
+
+
   Atuendo devolverSugerencia(){
-    validarTemperaturaEnTodasLasPrendas();
      return new Atuendo(superior,inferior,calzado,accesorio);
-
   }
-
-  private void validarTemperaturaEnTodasLasPrendas(){
-    temperaturaValida(superior);
-    temperaturaValida(inferior);
-    temperaturaValida(calzado);
-    temperaturaValida(accesorio);
-
-  }
-
-
-  private void temperaturaValida(Prenda prenda){
-   if(prenda.getTemperaturaAdecuada() <=(int) this.condicionesClimaticas().get(0).get("WeatherIcon")){
-     throw new RuntimeException("No es valida la temperatura de la prenda");
-   }
-   //aca deberia devolverme la temperatura pero nose como usar la API
- }
-
-
-  private List<Map<String, Object>> condicionesClimaticas(){
-     AccuWeatherAPI apiClimatica = new AccuWeatherAPI();
-     return apiClimatica.getWeather("Buenos Aires, Argentina");
-  }
-
 
 }
