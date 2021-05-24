@@ -1,4 +1,4 @@
-package CuartaIteracion;
+package QuintaIteracion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public interface GeneradorSugerencias {
 //ponemos esta clase como ejemplo que implementa la interfaz
 
 
-class Sugeridor implements GeneradorSugerencias{
+class Sugeridor implements GeneradorSugerencias {
   //lo de las prendas aptas lo modelo aca
   private boolean temperaturaValida(Prenda prenda){
     return prenda.getTemperaturaAdecuada() < this.temperaturaActual();
