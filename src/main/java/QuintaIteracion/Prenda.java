@@ -1,25 +1,25 @@
 ﻿package QuintaIteracion;
 
-import CuartaIteracion.Categoria;
-import CuartaIteracion.Color;
-import CuartaIteracion.Material;
-import CuartaIteracion.TipoPrenda;
-import CuartaIteracion.*;
-import SegundaIteracion.ColorException;
-import SegundaIteracion.MaterialException;
-import SegundaIteracion.TipoException;
+import QuintaIteracion.Exceptions.*;
+
+import java.math.BigDecimal;
 
 public class Prenda {
-    private CuartaIteracion.TipoPrenda tipoSeleccionado;
-    private CuartaIteracion.Material materialSeleccionado;
+    private TipoPrenda tipoSeleccionado;
+    private Material materialSeleccionado;
     private Trama tramaSeleccionada;
-    private CuartaIteracion.Color colorPrincipalSeleccionado;
-    private CuartaIteracion.Color colorSecundarioSeleccionado;
-    int temperaturaAdecuada;
+    private Color colorPrincipalSeleccionado;
+    private Color colorSecundarioSeleccionado;
+    BigDecimal temperaturaAdecuada;
+
+
+    public boolean temperaturaValida(BigDecimal temperatura){
+        return temperaturaAdecuada.intValue() < temperatura.intValue() ;
+    }
 
 
 
-    Prenda(TipoPrenda tipoSolicitado, Material materialSolicitado, Trama tramaSolicitada, CuartaIteracion.Color colorPrincipalSolicitado, Color colorSecundarioSolicitado, int temperatura) {
+    Prenda(TipoPrenda tipoSolicitado, Material materialSolicitado, Trama tramaSolicitada, Color colorPrincipalSolicitado, Color colorSecundarioSolicitado, BigDecimal temperatura) {
         //como requerimento primero lo que cargamos es el tipo de prenda solicitado:
         if (tipoSolicitado == null) {
             throw new TipoException("Debes seleccionar un tipo de atuendo a utilizar");
@@ -55,9 +55,6 @@ public class Prenda {
         this.temperaturaAdecuada = temperatura;
     }
 
-    public int getTemperaturaAdecuada(){
-        return temperaturaAdecuada;
-    }
 
     Categoria categoriaDePrenda() {
         return tipoSeleccionado.getCategoria();

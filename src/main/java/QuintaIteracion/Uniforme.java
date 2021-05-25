@@ -1,6 +1,8 @@
 package QuintaIteracion;
 
 
+import QuintaIteracion.Exceptions.CategoriaException;
+
 import java.util.ArrayList;
 import java.util.List;
 

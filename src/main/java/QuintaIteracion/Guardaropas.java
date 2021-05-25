@@ -1,91 +1,56 @@
 package QuintaIteracion;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Guardaropas {
-    String criterio; // por ahora es un string porque si fuera una clase no tiene ningun comportamiento
-    List<Usuario> usuariosPermitidos = new ArrayList<>();
+    private String criterio; // por ahora es un string porque si fuera una clase no tiene ningun comportamiento
+    private List<Prenda> prendas= new ArrayList<>();
+    private ServicioMetereologico apiClima;
+    private GeneradorSugerencias generador;
+    private List<Usuario> usuariosPermitidos = new ArrayList<>();
 
-    void agregarUsuario(Usuario usuario){
+   public void agregarUsuario(Usuario usuario){
       usuariosPermitidos.add(usuario);
     }
 
+  public Atuendo sugerirAtuendo() {
 
+    //primero filtramos las que serian prendas aptas a la temperatura actual, para que se realize una sugerencia consistente
+    List<Prenda> prendasAptas = prendasAptasATemperatura();
+
+    List<Prenda> prendasSuperiores = this.prendasSegunCategoria(prendasAptas, Categoria.SUPERIOR);
+    List<Prenda> prendasInferiores = this.prendasSegunCategoria(prendasAptas, Categoria.INFERIOR);
+    List<Prenda> prendasCalzado = this.prendasSegunCategoria(prendasAptas, Categoria.CALZADO);
+    List<Prenda> prendasAccesorio = this.prendasSegunCategoria(prendasAptas, Categoria.ACCESORIO);
+    //se me ocurrio que la sugerencia se forma a partir de una lista de prendas, las cuales se eligen al azar en base a cada categoria,
+    // y asi crea la sugerencia
+    Prenda superior = prendasSuperiores.get(new Random().nextInt(prendasSuperiores.size()));
+    Prenda inferior = prendasInferiores.get(new Random().nextInt(prendasInferiores.size()));
+    Prenda calzado = prendasCalzado.get(new Random().nextInt(prendasCalzado.size()));
+    Prenda accesorio = prendasAccesorio.get(new Random().nextInt(prendasAccesorio.size()));
+
+    return new Atuendo(superior,inferior,calzado,accesorio);
+
+
+  }
+  private List<Prenda> prendasSegunCategoria(List<Prenda> prendas, Categoria categoria){
+    //aca no queda muy lindo xq queda como un code smell, ya que le estamos preguntando de que categoria es que no sseria lo indicado, pero por ahora es una alternativa
+    return prendas.stream().filter(prenda-> prenda.categoriaDePrenda() == categoria).collect(Collectors.toList());
+  }
+
+
+  public List<Prenda> prendasAptasATemperatura(){
+
+    BigDecimal temperaturaActual = apiClima.obtenerTemperatura("Buenos Aires, Argentina");
+     return obtenerAtuendosSegunTemperatura(temperaturaActual);
 
 }
-
-
-
-class Usuario{
-
-  private String nombre; // cada usuario se diferencia a traves de un nombre y apellido (por ahora)
-  private String apellido;
-  private Guardaropas guardarropasActual;
-
-  private List<Prenda> prendasSolicitadasAAgregar = new ArrayList<>();
-  private List<Prenda> prendasSolicitadasAQuitar = new ArrayList<>();
-
-
-
-  public Usuario(String nombre, String apellido,Guardaropas guardarropas) {
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.guardarropasActual = guardarropas;
+  private List<Prenda> obtenerAtuendosSegunTemperatura(BigDecimal temperatura){
+    return prendas.stream().filter(prenda -> prenda.temperaturaValida(temperatura)).collect(Collectors.toList());
   }
-
-  public void compartirGuardarropasConOtroUsuario(Usuario invitado){
-    guardarropasActual.agregarUsuario(invitado);
-  }
-
-  public void aceptarModificacionDeAgregado(Prenda prenda,List<Prenda> prendasSolicitadas){
-   if(!this.prendaSeEncuentraEntreModificaciones(prenda,prendasSolicitadas)){
-     throw new RuntimeException("No se encuentra la prenda solicitada en la lista para realizar el tipo de modificaciones seleccionada");
-   }
-   //aca depende de la lista, deberia o quitarlo o agregarlo en el guardarropas
-   this.actualizarPrendaSolicitadaAModificaciones(prenda, prendasSolicitadas);
-  }
-
-  private void actualizarPrendaSolicitadaAModificaciones(Prenda prenda, List<Prenda> lista){
-    lista.remove(prenda);
-  }
-
-  private void rechazarModificacion(Prenda prenda){
-    //no deberia hacer nada por ahora xq no hay requerimentos que especifiquen sobre ello ....
-  }
-
-
-
-
-
-
-
-  public void proponerAgregarPrendaTentativamente(Prenda prenda, Usuario usuario){
-    usuario.addPrendasSolicitadasAAgregar(prenda);
-  }
-
-  public void proponerQuitarPrendaTentativamente(Prenda prenda, Usuario usuario){
-    usuario.addPrendasSolicitadasAQuitar(prenda);
-  }
-
-  public void addPrendasSolicitadasAAgregar(Prenda prendaNueva){
-    this.prendaAgregadaAlista(prendaNueva,prendasSolicitadasAAgregar);
-  }
-  public void addPrendasSolicitadasAQuitar(Prenda prendaNueva) {
-    this.prendaAgregadaAlista(prendaNueva, prendasSolicitadasAQuitar);
-  }
-
-
-  ///METODOS DE LA CLASE, QUE NO SE DEBERIAN DE USAR POR AFUERA
-
-  private void prendaAgregadaAlista(Prenda prenda, List<Prenda> prendasSolicitadas){
-    prendasSolicitadas.add(prenda);
-  }
-  private boolean prendaSeEncuentraEntreModificaciones(Prenda prenda,List<Prenda> prendasSolicitadas){
-    return prendasSolicitadas.contains(prenda);
-  }
-
-
-
-
 }

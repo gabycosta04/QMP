@@ -1,8 +1,6 @@
 package QuintaIteracion;
 
-import CuartaIteracion.Categoria;
-import CuartaIteracion.CategoriaException;
-import CuartaIteracion.Prenda;
+import QuintaIteracion.Exceptions.CategoriaException;
 
 public class Atuendo {
   Prenda superior;

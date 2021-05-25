@@ -1,4 +1,4 @@
-package QuintaIteracion;
+package QuintaIteracion.Exceptions;
 
 public class CategoriaException extends RuntimeException {
 

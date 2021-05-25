@@ -1,7 +1,7 @@
-package QuintaIteracion;
+package QuintaIteracion.Exceptions;
 
 public class ColorException extends RuntimeException {
-    ColorException(String msg) {
+    public ColorException(String msg) {
         super(msg);
     }
 }

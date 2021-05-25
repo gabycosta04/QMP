@@ -1,6 +1,7 @@
 package CuartaIteracion;
 
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -60,11 +61,11 @@ public class Sugerencia {
   }
 
   //aca utilizaremos la API mencionada, donde obtendremos el valor de la temperatura actual
-  private int temperaturaActual(){
+  private BigDecimal temperaturaActual(){
     AccuWeatherAPI apiUtilizada = new AccuWeatherAPI();
     List<Map<String, Object>> condicionesClimaticas = apiUtilizada.getWeather("Buenos Aires, Argentina");
     Map<String, Object> temperaturaActual = (Map<String, Object>) condicionesClimaticas.get(0).get("Temperature");
-    return ((int) temperaturaActual.get("Value"));
+    return (BigDecimal) temperaturaActual.get("Value");
 
   }
 
