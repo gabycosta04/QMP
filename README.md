@@ -1,18 +1,26 @@
 ## QMP (2 ITERACION)
 
-# Enunciado: Cuarta Iteracion
+# Enunciado: Quinta Iteracion
 
-En esta oportunidad, atacaremos solamente los siguientes requerimientos específicos:
+En esta iteración continuaremos trabajando sobre las sugerencias de atuendos:
 
-- Como usuarie de QuéMePongo, quiero poder conocer las condiciones climáticas de Buenos Aires en un momento dado para obtener sugerencias acordes.
+Como usuarie de QuéMePongo, quiero compartir mis guardarropas con otras personas.
 
-- Como usuarie de QuéMePongo, quiero poder recibir sugerencias de atuendos que tengan una prenda para cada categoría, aunque a futuro podrán tener más (Ej.: Una remera, un pantalón, zapatos y un gorro).
 
-- Como usuarie de QuéMePongo, quiero que al generar una sugerencia las prendas sean acordes a la temperatura actual sabiendo que para cada prenda habrá una temperatura hasta la cual es adecuada. (Ej.: “Remera de mangas largas” no es apta a más de 20°C)
+Por ahora, comenzaremos atacando los siguientes requerimientos específicos:
 
-- Como administradore de QuéMePongo, quiero poder configurar fácilmente diferentes servicios de obtención del clima para ajustarme a las cambiantes condiciones económicas.
+- Como usuarie de QuéMePongo, quiero poder manejar varios guardarropas para separar mis prendas según diversos criterios (ropa de viaje, ropa de entrecasa, etc). 
 
-- Como stakeholder de QuéMePongo, quiero poder asegurar la calidad de mi aplicación sin incurrir en costos innecesarios. 
+- Como usuarie de QuéMePongo, quiero poder crear guardarropas compartidos con otros usuaries (ej, ropa que comparto con mi hermane). 
+
+- Como usuarie de QuéMePongo, quiero que otro usuario me proponga tentativamente agregar una prenda al guardarropas.
+
+- Como usuarie de QuéMePongo, quiero que otro usuario me proponga tentativamente quitar una prenda del guardarropas.
+
+- Como usuarie de QuéMePongo, necesito ver todas las propuestas de modificación (agregar o quitar prendas) del guardarropas y poder aceptarlas o rechazarlas..
+
+- Como usuarie de QuéMePongo, quiero poder deshacer las propuestas de modificación que haya aceptado.
+
 
 
 # Resolucion del diseño realizado:
