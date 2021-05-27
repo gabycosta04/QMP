@@ -26,4 +26,4 @@ En base a los requerimentos establecidos en el enunciado, realize una alternativ
 
 # DIAGRAMA DEL DISEÑO REALIZADO
 
-![Im](src/main/java/DiagramaDeClases.jpg)
+![Im](src\main\java\QuintaIteracion\DiagramaDeClasesQuintaIteracion.png)
