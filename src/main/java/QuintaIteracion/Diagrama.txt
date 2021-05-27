@@ -1,0 +1,59 @@
+@startuml
+class Guardarropas{
+
+    String criterio
+    List<Prenda> prendas
+    ServicioMetereologico apiClima
+    GeneradorSugerencias generador
+    List<Usuario> usuariosPermitidos
+
+    agregarUsuario(Usuario usuario)
+    aceptarPropuestaDeModificacion()
+    rechazarPropuestaDeModificacion()
+    agregarPrenda(Prenda prenda)
+    quitarPrenda(Prenda prenda)
+}
+
+class Prenda{
+    TipoPrenda tipoSeleccionado
+    Material materialSeleccionado
+    Trama tramaSeleccionada
+    Color colorPrincipalSeleccionado
+    Color colorSecundarioSeleccionado
+    temperaturaAdecuada;
+
+    categoriaDePrenda();
+    temperaturaValida(BigDecimal temperatura)
+
+}
+class Usuario{
+    String username
+    String password
+    List<Guardarropas> guardarropasActual
+
+    sugerirAgregadoDeAtuendo(Usuario usuario, Prenda prendaSugerido, Guardarropas guardarropas)
+    sugerirQuitadoDeAtuendo(Usuario usuario, Prenda prendaSugerido, Guardarropas guardarropas)
+}
+interface Modificacion{
+    void aceptar(Guardarropas guardarropas)
+}
+class Agregar{
+    Prenda prendaActual
+
+    void aceptar(Guardarropas guardarropas)
+}
+class Quitar{
+    Prenda prendaActual
+
+    void aceptar(Guardarropas guardarropas)
+}
+
+
+Guardarropas --> "*" Usuario
+Guardarropas --> "*" Prenda
+Usuario --> "*" Guardarropas
+Guardarropas --> "*" Modificacion
+Agregar ..|> Modificacion
+Quitar ..|> Modificacion
+
+@enduml
