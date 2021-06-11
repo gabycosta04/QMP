@@ -46,4 +46,4 @@ Se cuenta con una nueva operación del SDK de AccuWeather a la que se le puede c
 
 # DIAGRAMA DEL DISEÑO REALIZADO
 
-![Im](src/main/java/QuintaIteracion/DiagramaDeClasesQuintaIteracion.png)
+![Im](src/main/java/SextaIteracion/Diseño de sistemas - QMP6 UML.png)
