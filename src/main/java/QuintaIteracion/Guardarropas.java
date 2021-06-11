@@ -8,20 +8,21 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Guardarropas {
-    private String criterio; // por ahora es un string porque si fuera una clase no tiene ningun comportamiento
-    private List<Prenda> prendas= new ArrayList<>();
-    private ServicioMetereologico apiClima;
-    private GeneradorSugerencias generador;
-    private List<Usuario> usuariosPermitidos = new ArrayList<>();
-    List <Modificacion> modificacionesSugeridas = new ArrayList<>();
+  private String criterio; // por ahora es un string porque si fuera una clase no tiene ningun comportamiento
+  private List<Prenda> prendas= new ArrayList<>();
+  private ServicioMetereologico apiClima;
+  private GeneradorSugerencias generador;
+
+  private List<Usuario> usuariosPermitidos = new ArrayList<>();
+  private List <Modificacion> modificacionesSugeridas = new ArrayList<>();
 
 
-   public void agregarUsuario(Usuario usuario){
+  public void agregarUsuario(Usuario usuario){
       usuariosPermitidos.add(usuario);
     }
 
-  //CONSIDERAMOS QUE EL GUARDARROPAS HACE LO RELACIONADO CON LAS DECISIONES RESPECTO DE LAS MODIFICACIONES SUGERIDAS
 
+  //CONSIDERAMOS QUE EL GUARDARROPAS HACE LO RELACIONADO CON LAS DECISIONES RESPECTO DE LAS MODIFICACIONES SUGERIDAS
   // Nosotros consideramos que lo q va a hacer es ir quitando de a una de la lista de modificiones
   // Por lo tanto va a rechazar o aceptar la primera modificacion de la lista propuesta.
   // Como no aclara si cuando se rechaza se quita de la lista, nosotros lo vamos a considerar q si se elimina
