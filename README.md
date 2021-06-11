@@ -42,7 +42,7 @@ Se cuenta con una nueva operación del SDK de AccuWeather a la que se le puede c
 
 # Resolucion del diseño realizado:
 
-
+Solo pude realizar el diagrama de clases correspondiente con la actividad, ya que fue medio complejo la realizacion de pensar el codigo 
 
 # DIAGRAMA DEL DISEÑO REALIZADO
 
